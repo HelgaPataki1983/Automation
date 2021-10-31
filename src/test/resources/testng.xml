@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="My First Test Suite">
+    <test name="CalculatorTest">
+        <classes>
+            <class name="TestngDemoTests.CalculatorTest"/>
+        </classes>
+    </test> <!-- Test -->
+
+    <test name="StringWorkerTest">
+        <classes>
+            <class name="TestngDemoTests.StringWorkerTest"/>
+        </classes>
+    </test> <!-- Test -->
+
+    <test name="ArrayTest">
+        <classes>
+            <class name="HW16Tests.ArrayTest"/>
+        </classes>
+    </test> <!-- Test -->
+
+    <test name="DigitReversedTest">
+        <classes>
+            <class name="HW16Tests.DigitReversedTest"/>
+        </classes>
+    </test> <!-- Test -->
+
+    <test name="StringConcatTest">
+        <classes>
+            <class name="HW16Tests.StringConcatTest"/>
+        </classes>
+    </test> <!-- Test -->
+</suite> <!-- Suite -->
