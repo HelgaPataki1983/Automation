@@ -7,4 +7,5 @@ public class Calculatorr {
     public  int multiply(int j, int k){
         return j*k;
     }
+
 }
