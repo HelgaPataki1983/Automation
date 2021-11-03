@@ -33,9 +33,9 @@ public class IntertopTest extends UIBaseTest {
         driver.get("https://intertop.ua/");
         String intertopTab = driver.getCurrentUrl();
         driver.switchTo().newWindow(WindowType.TAB);
-        driver.get("https://intertop.ua/");
-        String intertopTab1 = driver.getCurrentUrl();
-        Assert.assertEquals(driver.getCurrentUrl(),intertopTab1);
+        String intertopUrl1 = "http://java-online.ru/blog-junit.xhtml";
+        driver.get(intertopUrl1);
+        Assert.assertEquals(driver.getCurrentUrl(),intertopUrl1);
     }
 }
 
