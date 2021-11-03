@@ -31,11 +31,10 @@ public class IntertopTest extends UIBaseTest {
     @Test
     public void positiveTest2() {
         driver.get("https://intertop.ua/");
-        String intertopTab = driver.getCurrentUrl();
         driver.switchTo().newWindow(WindowType.TAB);
-        String intertopUrl1 = "http://java-online.ru/blog-junit.xhtml";
-        driver.get(intertopUrl1);
-        Assert.assertEquals(driver.getCurrentUrl(),intertopUrl1);
+        String javaonlineUrl = "http://java-online.ru/blog-junit.xhtml";
+        driver.get(javaonlineUrl);
+        Assert.assertEquals(driver.getCurrentUrl(),javaonlineUrl);
     }
 }
 
