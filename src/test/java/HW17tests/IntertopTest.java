@@ -22,19 +22,19 @@ public class IntertopTest extends UIBaseTest {
     @Test
     public void negativeTest2() {
         driver.get("https://intertop.ua/");
-        String intertopTab = driver.getTitle();
+        String intertopTab = driver.getCurrentUrl();
         driver.switchTo().newWindow(WindowType.TAB);
         driver.get("http://java-online.ru/blog-junit.xhtml");
-        String javaonlineTab = driver.getTitle();
+        String javaonlineTab = driver.getCurrentUrl();
         Assert.assertNotEquals(intertopTab,javaonlineTab);
     }
     @Test
     public void positiveTest2() {
         driver.get("https://intertop.ua/");
-        String intertopTab = driver.getTitle();
+        String intertopTab = driver.getCurrentUrl();
         driver.switchTo().newWindow(WindowType.TAB);
         driver.get("https://intertop.ua/");
-        String intertopTab1 = driver.getTitle();
+        String intertopTab1 = driver.getCurrentUrl();
         Assert.assertEquals(intertopTab,intertopTab1);
     }
 }
