@@ -10,10 +10,15 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class Guru99Test extends UIBaseTest{
-    String url = "https://demo.guru99.com/Agile_Project/Agi_V1/index.php";
+public class Guru99Test extends UIBaseTest {
+    String url = "http://demo.guru99.com/Agile_Project/Agi_V1/index.php";
     String validLogin = "1303";
     String validPassword = "Guru99";
+    String invalidPassword = "123";
+    String invalidLogin = "130303";
+    String alertText = "User or Password is not valid";
+    String emptyLogin = "";
+    String emptyPassword = "";
 
     @Test
     public void loginWithValidCredentials() {
@@ -48,8 +53,6 @@ public class Guru99Test extends UIBaseTest{
 
     @Test
     public void loginWithInvalidPassword() {
-        String invalidPassword = "123";
-
         driver.get(url);
 
         WebElement loginField = driver.findElement(By.name("uid"));
@@ -68,4 +71,76 @@ public class Guru99Test extends UIBaseTest{
         driver.switchTo().alert().accept();
         Assert.assertEquals(driver.getCurrentUrl(), url);
     }
+
+    @Test
+    public void loginWithInvalidLogin() {
+        driver.get(url);
+
+        WebElement loginField = driver.findElement(By.name("uid"));
+        loginField.sendKeys(invalidLogin);
+
+        WebElement passwordField = driver.findElement(By.name("password"));
+        passwordField.sendKeys(invalidPassword);
+
+        WebElement loginButton = driver.findElement(By.name("btnLogin"));
+        loginButton.click();
+
+        Assert.assertEquals(driver.switchTo().alert().getText(), alertText);
+
+        driver.switchTo().alert().accept();
+        Assert.assertEquals(driver.getCurrentUrl(), url);
+    }
+    @Test
+    public void loginWithInvalidCredentials() {
+        driver.get(url);
+
+        WebElement loginField = driver.findElement(By.name("uid"));
+        loginField.sendKeys(invalidLogin);
+
+        WebElement passwordField = driver.findElement(By.name("password"));
+        passwordField.sendKeys(invalidPassword);
+
+        WebElement loginButton = driver.findElement(By.name("btnLogin"));
+        loginButton.click();
+
+        Assert.assertEquals(driver.switchTo().alert().getText(), alertText);
+
+        driver.switchTo().alert().accept();
+        Assert.assertEquals(driver.getCurrentUrl(), url);
+    }
+    @Test
+    public void loginWithEmptyLogin() {
+        driver.get(url);
+
+        WebElement loginField = driver.findElement(By.name("uid"));
+        loginField.sendKeys(emptyLogin);
+
+        WebElement passwordField = driver.findElement(By.name("password"));
+        passwordField.sendKeys(validPassword);
+
+        WebElement loginButton = driver.findElement(By.name("btnLogin"));
+        loginButton.click();
+        Assert.assertEquals(driver.switchTo().alert().getText(), alertText);
+
+        driver.switchTo().alert().accept();
+        Assert.assertEquals(driver.getCurrentUrl(), url);
+    }
+    @Test
+    public void loginWithEmptyPassword() {
+        driver.get(url);
+
+        WebElement loginField = driver.findElement(By.name("uid"));
+        loginField.sendKeys(validLogin);
+
+        WebElement passwordField = driver.findElement(By.name("password"));
+        passwordField.sendKeys(emptyPassword);
+
+        WebElement loginButton = driver.findElement(By.name("btnLogin"));
+        loginButton.click();
+       Assert.assertEquals(driver.switchTo().alert().getText(), alertText);
+
+        driver.switchTo().alert().accept();
+        Assert.assertEquals(driver.getCurrentUrl(), url); // падает тест , не пойму почему, на 142 строке
+    }
+
 }
