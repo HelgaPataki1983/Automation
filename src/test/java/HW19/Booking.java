@@ -30,9 +30,30 @@ public class Booking extends UIBaseTest {
         WebElement findPlaceToGo = driver.findElement(By.id("ss"));
         findPlaceToGo.sendKeys(place, Keys.ENTER);
 
-        WebElement checkIn = driver.findElement(By.className("sb-date-field__display"));
+        WebElement checkIn = driver.findElement(By.xpath("//div[@class='sb-date-field__display'] [contains(text(),'Check-in date')]"));
         checkIn.click();
+
+      //  WebElement chooseMonth = driver.findElement(By.xpath("//div[@class='bui-calendar__month'] [contains(text(),'November 2021')]"));
+        WebElement chooseDateCheckin = driver.findElement(By.xpath("//div[@class='bui-calendar__wrapper']//td[@data-date='2021-11-10']//span[@aria-label='10 November 2021']"));
+        chooseDateCheckin.click();
+
+        WebElement сheckOut = driver.findElement(By.xpath("//div[@class='sb-date-field__display'] [contains(text(),'Check-out date')]"));
+        сheckOut.click();
+
+        WebElement chooseDateCheckOut = driver.findElement(By.xpath("//div[@class='bui-calendar__wrapper']//td[@data-date='2021-11-10']//span[contains(text(),'17')]"));
+        chooseDateCheckOut.click();
+
+
     }
 
 }
 
+
+
+
+
+//div [@class='bui-calendar__wrapper'] //td[@data-date='2021-11-10'] [contains(text(),'')]
+//div [@class='bui-calendar__wrapper'] //span[@aria-label='10 November 2021']
+//div [@class='bui-calendar__wrapper'] //td[@data-date='2021-11-10']
+//element not interactable
+//div[@class='bui-calendar__wrapper']//td[@data-date='2021-11-10']//span[contains(text(),'10')]"));
