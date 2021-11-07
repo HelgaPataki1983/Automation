@@ -28,20 +28,21 @@ public class Booking extends UIBaseTest {
         englishLanguage.click();
 
         WebElement findPlaceToGo = driver.findElement(By.id("ss"));
-        findPlaceToGo.sendKeys(place, Keys.ENTER);
+        findPlaceToGo.sendKeys(place);
 
-        WebElement checkIn = driver.findElement(By.xpath("//div[@class='sb-date-field__display'] [contains(text(),'Check-in date')]"));
+        WebElement checkIn = driver.findElement(By.xpath("//div[@data-mode='checkin']"));
         checkIn.click();
 
-      //  WebElement chooseMonth = driver.findElement(By.xpath("//div[@class='bui-calendar__month'] [contains(text(),'November 2021')]"));
-        WebElement chooseDateCheckin = driver.findElement(By.xpath("//div[@class='bui-calendar__wrapper']//td[@data-date='2021-11-10']//span[@aria-label='10 November 2021']"));
+        WebElement chooseDateCheckin = driver.findElement(By.xpath("//div[@class='bui-calendar__wrapper']//td[@data-date='2021-11-10']//span[contains(text(),'10')]"));
         chooseDateCheckin.click();
 
-        WebElement сheckOut = driver.findElement(By.xpath("//div[@class='sb-date-field__display'] [contains(text(),'Check-out date')]"));
-        сheckOut.click();
-
-        WebElement chooseDateCheckOut = driver.findElement(By.xpath("//div[@class='bui-calendar__wrapper']//td[@data-date='2021-11-10']//span[contains(text(),'17')]"));
+        WebElement chooseDateCheckOut = driver.findElement(By.xpath("//div[@class='bui-calendar__wrapper']//td[@data-date='2021-11-17']//span[contains(text(),'17')]"));
         chooseDateCheckOut.click();
+
+        WebElement searchButton = driver.findElement(By.xpath("//div[@class='sb-searchbox-submit-col -submit-button ']//span[contains(text(),'Search')]"));
+        searchButton.click();
+
+        WebElement inputType = driver.get();
 
 
     }
@@ -57,3 +58,4 @@ public class Booking extends UIBaseTest {
 //div [@class='bui-calendar__wrapper'] //td[@data-date='2021-11-10']
 //element not interactable
 //div[@class='bui-calendar__wrapper']//td[@data-date='2021-11-10']//span[contains(text(),'10')]"));
+// [contains(text(),'Check-in date')]
