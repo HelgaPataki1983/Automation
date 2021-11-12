@@ -14,9 +14,13 @@ import UITest.UIBaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 public class Booking extends UIBaseTest {
+
     @Test
     public void bookHotel(){
         driver.get("https://www.booking.com");
@@ -33,16 +37,39 @@ public class Booking extends UIBaseTest {
         WebElement checkIn = driver.findElement(By.xpath("//div[@data-mode='checkin']"));
         checkIn.click();
 
-        WebElement chooseDateCheckin = driver.findElement(By.xpath("//div[@class='bui-calendar__wrapper']//td[@data-date='2021-11-10']//span[contains(text(),'10')]"));
+        WebElement chooseDateCheckin = driver.findElement(By.xpath("//div[@class='bui-calendar__wrapper']//td[@data-date='2021-11-17']//span[contains(text(),'17')]"));
         chooseDateCheckin.click();
 
-        WebElement chooseDateCheckOut = driver.findElement(By.xpath("//div[@class='bui-calendar__wrapper']//td[@data-date='2021-11-17']//span[contains(text(),'17')]"));
+        WebElement chooseDateCheckOut = driver.findElement(By.xpath("//div[@class='bui-calendar__wrapper']//td[@data-date='2021-11-18']//span[contains(text(),'18')]"));
         chooseDateCheckOut.click();
 
         WebElement searchButton = driver.findElement(By.xpath("//div[@class='sb-searchbox-submit-col -submit-button ']//span[contains(text(),'Search')]"));
         searchButton.click();
 
-        WebElement inputType = driver.get();
+        WebElement inputType = driver.findElement(By.xpath("//input[@placeholder='London']"));
+        Assert.assertTrue(inputType.isDisplayed());
+
+        WebElement rightDateCheckin = driver.findElement(By.xpath("//div[@class='sb-date-field__display'] [contains(text(),'Wednesday 17 November 2021')]"));
+        Assert.assertTrue(rightDateCheckin.isDisplayed());
+
+        WebElement rightDateCheckout = driver.findElement(By.xpath("//div[@class='sb-date-field__display'] [contains(text(),'Thursday 18 November 2021')]"));
+        Assert.assertTrue(rightDateCheckout.isDisplayed());
+
+        WebElement checkbox = driver.findElement(By.xpath("//div[@data-testid='filters-group-label-content'] [contains(text(),'Superb: 9+')]"));
+        checkbox.click();
+
+       List<WebElement> hotelScore = driver.findElements(By.cssSelector("[data-testid=review-score] div[aria-label]"));
+       double minimumScore = 9.0;
+        for (WebElement hotelScores : hotelScore) {
+            WebElement score = hotelScores.findElement(By.cssSelector("[data-testid=review-score] div[aria-label]"));
+            double actualScore = Double.parseDouble(score.getText());
+            {
+                Assert.assertTrue(actualScore >= minimumScore);
+            }
+        }
+
+
+
 
 
     }
@@ -52,10 +79,3 @@ public class Booking extends UIBaseTest {
 
 
 
-
-//div [@class='bui-calendar__wrapper'] //td[@data-date='2021-11-10'] [contains(text(),'')]
-//div [@class='bui-calendar__wrapper'] //span[@aria-label='10 November 2021']
-//div [@class='bui-calendar__wrapper'] //td[@data-date='2021-11-10']
-//element not interactable
-//div[@class='bui-calendar__wrapper']//td[@data-date='2021-11-10']//span[contains(text(),'10')]"));
-// [contains(text(),'Check-in date')]
