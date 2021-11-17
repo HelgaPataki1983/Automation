@@ -61,8 +61,8 @@ public class Booking extends UIBaseTest {
        List<WebElement> hotelScore = driver.findElements(By.cssSelector("[data-testid=review-score] div[aria-label]"));
        double minimumScore = 9.0;
         for (WebElement hotelScores : hotelScore) {
-            WebElement score = hotelScores.findElement(By.cssSelector("[data-testid=review-score] div[aria-label]"));
-            double actualScore = Double.parseDouble(score.getText());
+
+            double actualScore = Double.parseDouble(hotelScores.getText());
             {
                 Assert.assertTrue(actualScore >= minimumScore);
             }

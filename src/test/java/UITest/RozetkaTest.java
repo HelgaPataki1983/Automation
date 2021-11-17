@@ -17,7 +17,7 @@ public class RozetkaTest extends UIBaseTest {
 
         WebElement searchField = driver.findElement(By.xpath("//input[@name='search']"));
         searchField.sendKeys(searchText);
-        //searchField.sendKeys(searchText, Keys.ENTER);
+        searchField.sendKeys(searchText, Keys.ENTER);
 
         WebElement searchButton = driver.findElement(By.cssSelector(".button.button_color_green"));
         searchButton.click();
