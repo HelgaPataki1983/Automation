@@ -1,5 +1,6 @@
 package HW22;
 
+
 import HW22PO.BookingPageObject;
 import UITest.UIBaseTest;
 import org.openqa.selenium.By;
@@ -44,4 +45,5 @@ public class BookingPageObjectTest extends UIBaseTest {
             }
         }
     }
+
 }
