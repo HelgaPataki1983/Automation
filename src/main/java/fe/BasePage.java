@@ -10,13 +10,14 @@ import java.time.Duration;
 
 public class BasePage {
 
-    protected WebDriver driver;
-    protected WebDriverWait wait;
-    protected Actions actions;
-    JavascriptExecutor js;
+   public WebDriver driver;
+   public WebDriverWait wait;
+   public Actions actions;
+   public JavascriptExecutor js;
 
-    public BasePage(WebDriver webDriver) {
-        this.driver = webDriver;
+
+    public BasePage(WebDriver driver) {
+        this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         actions = new Actions(driver);
         js = (JavascriptExecutor)driver;
