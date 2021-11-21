@@ -37,10 +37,10 @@ public class Booking extends UIBaseTest {
         WebElement checkIn = driver.findElement(By.xpath("//div[@data-mode='checkin']"));
         checkIn.click();
 
-        WebElement chooseDateCheckin = driver.findElement(By.xpath("//div[@class='bui-calendar__wrapper']//td[@data-date='2021-11-17']//span[contains(text(),'17')]"));
+        WebElement chooseDateCheckin = driver.findElement(By.xpath("//div[@class='bui-calendar__wrapper']//td[@data-date='2021-11-23']//span[contains(text(),'23')]"));
         chooseDateCheckin.click();
 
-        WebElement chooseDateCheckOut = driver.findElement(By.xpath("//div[@class='bui-calendar__wrapper']//td[@data-date='2021-11-18']//span[contains(text(),'18')]"));
+        WebElement chooseDateCheckOut = driver.findElement(By.xpath("//div[@class='bui-calendar__wrapper']//td[@data-date='2021-11-28']//span[contains(text(),'28')]"));
         chooseDateCheckOut.click();
 
         WebElement searchButton = driver.findElement(By.xpath("//div[@class='sb-searchbox-submit-col -submit-button ']//span[contains(text(),'Search')]"));
@@ -49,10 +49,10 @@ public class Booking extends UIBaseTest {
         WebElement inputType = driver.findElement(By.xpath("//input[@placeholder='London']"));
         Assert.assertTrue(inputType.isDisplayed());
 
-        WebElement rightDateCheckin = driver.findElement(By.xpath("//div[@class='sb-date-field__display'] [contains(text(),'Wednesday 17 November 2021')]"));
+        WebElement rightDateCheckin = driver.findElement(By.xpath("//div[@class='sb-date-field__display'] [contains(text(),'Thursday 23 November 2021')]"));
         Assert.assertTrue(rightDateCheckin.isDisplayed());
 
-        WebElement rightDateCheckout = driver.findElement(By.xpath("//div[@class='sb-date-field__display'] [contains(text(),'Thursday 18 November 2021')]"));
+        WebElement rightDateCheckout = driver.findElement(By.xpath("//div[@class='sb-date-field__display'] [contains(text(),'Sunday 28 November 2021')]"));
         Assert.assertTrue(rightDateCheckout.isDisplayed());
 
         WebElement checkbox = driver.findElement(By.xpath("//div[@data-testid='filters-group-label-content'] [contains(text(),'Superb: 9+')]"));
