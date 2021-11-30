@@ -12,16 +12,16 @@ import com.codeborne.selenide.Selenide;
 import org.testng.annotations.Test;
 
 public class EasyjetTest {
-    EasyjetPageObject easyjetPageObject = new EasyjetPageObject();
+    EasyjetPage easyjetPage = new EasyjetPage();
 
     private String https = "https://www.easyjet.com/en";
 
     @Test
     public void selenideTest(){
     Selenide.open(https);
-    easyjetPageObject.closeCookies();
-        easyjetPageObject.enterPlaceFromWhere();
-        easyjetPageObject.SetValue();
+    easyjetPage.closeCookies();
+        easyjetPage.enterPlaceFromWhere();
+        easyjetPage.SetValue();
     }
 
 

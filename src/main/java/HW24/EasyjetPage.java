@@ -2,14 +2,11 @@ package HW24;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.commands.SetValue;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 import static com.codeborne.selenide.Selenide.*;
 
-public class EasyjetPageObject  {
+public class EasyjetPage {
     private String fromWhere = "Berlin";
     private String toWhere = "London";
 
@@ -20,11 +17,11 @@ public class EasyjetPageObject  {
     /*private SelenideElement departing =$x("#search-results)
     private SelenideElement returning =$();
 */
-      public EasyjetPageObject open() {
+      public EasyjetPage open() {
           Selenide.open("/");
           return this;
       }
-      public EasyjetPageObject closeCookies(){
+      public EasyjetPage closeCookies(){
           acceptCookies.click();
           return this;
       }
@@ -34,17 +31,17 @@ public class EasyjetPageObject  {
           return this;
       }*/
 
-    public EasyjetPageObject enterPlaceToWhere() {
+    public EasyjetPage enterPlaceToWhere() {
         enterToWere.click();
         enterToWere.setValue(toWhere).click();
         return this;
     }
-    public EasyjetPageObject enterPlaceFromWhere() {
+    public EasyjetPage enterPlaceFromWhere() {
         enterFromWere.click();
         return this;
     }
 
-        public EasyjetPageObject SetValue() {
+        public EasyjetPage SetValue() {
             enterFromWere.setValue(fromWhere).click();
             return this;
 
