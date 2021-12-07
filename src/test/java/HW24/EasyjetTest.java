@@ -20,8 +20,14 @@ public class EasyjetTest {
     public void selenideTest(){
     Selenide.open(https);
     easyjetPage.closeCookies();
-        easyjetPage.enterPlaceFromWhere();
-        easyjetPage.SetValue();
+    easyjetPage.enterPlaceFromWhere();
+    easyjetPage.enterPlaceToWhere();
+    easyjetPage.enterDeparting();
+    easyjetPage.enterDateFrom();
+    easyjetPage.enterReturning();
+    easyjetPage.enterDateTo();
+    easyjetPage.addAdults();
+    easyjetPage.clickSearch();
     }
 
 
